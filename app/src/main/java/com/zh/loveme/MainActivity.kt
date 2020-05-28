@@ -14,6 +14,7 @@ import com.yalantis.contextmenu.lib.ContextMenuDialogFragment
 import com.yalantis.contextmenu.lib.MenuObject
 import com.yalantis.contextmenu.lib.MenuParams
 import com.zh.loveme.activity.PreviewActivity
+import com.zh.loveme.activity.PreviewNewActivity
 import com.zh.loveme.activity.fragment.WirteTextFragment
 import com.zh.loveme.base.LibBaseActivity
 import com.zh.loveme.config.Configs
@@ -93,7 +94,8 @@ class MainActivity : LibBaseActivity() {
                     beginTransaction.commit()
                 } else if (position == 2) {
                     Configs.setContentText(writeTextFragment.getText())
-                    PreviewActivity.jumpActivity(mContext)
+//                    PreviewActivity.jumpActivity(mContext)
+                    PreviewNewActivity.jumpActivity(mContext)
                 } else if (position == 3) {
                     val beginTransaction = supportFragmentManager.beginTransaction()
                     beginTransaction.add(R.id.frameLayout, WirteTextFragment.newInstance(), "write")

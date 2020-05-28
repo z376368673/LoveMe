@@ -22,6 +22,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.PreviewActivity" />
+        <activity android:name=".activity.PreviewNewActivity" />
 
         <service android:name=".ScreenRecordService" />
     </application>

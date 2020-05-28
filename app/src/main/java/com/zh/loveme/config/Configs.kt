@@ -10,7 +10,9 @@ import com.zh.loveme.MainActivity
  */
  object  Configs{
      var listData:ArrayList<String> = ArrayList()
-    fun setContentText(text: String) {
+     var textData:StringBuffer = StringBuffer("")
+     fun setContentText(text: String) {
+        textData.append(text)
         listData.clear()
         val split = text.split(" ")
         listData.addAll(split)
