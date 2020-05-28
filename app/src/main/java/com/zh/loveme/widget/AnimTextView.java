@@ -1,5 +1,6 @@
 package com.zh.loveme.widget;
 
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Handler;
@@ -17,17 +18,17 @@ import android.widget.TextView;
  */
 public class AnimTextView  extends WrapLayout{
     private Context mContext;
+
     public AnimTextView(Context context) {
         super(context);
         mContext = context;
-
     }
 
     public AnimTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
         mContext = context;
     }
-    public void setText(String text, final Animation animation, int duration) {
+    public void setText(String text, final Animation animation, final int duration) {
         setGravity(Gravity.LEFT);
         setVerticalSpacing(30);
         int time = 0;
@@ -46,7 +47,17 @@ public class AnimTextView  extends WrapLayout{
                     public void run() {
                         addView(t);
                         Log.e("Text", "setText: "+t.getText().toString() );
-                        t.setAnimation(animation);
+//                        ObjectAnimator animator = ObjectAnimator.ofFloat(t, "rotation", 0f, 360f);
+                        ObjectAnimator animator = ObjectAnimator.ofFloat(t, "translationX",  -300f, 0f,1f);
+
+                        // 表示的是:
+                        // 动画作用对象是mButton
+                        // 动画作用的对象的属性是旋转alpha
+                        // 动画效果是:0 - 360
+                        animator.setDuration(1000);
+                        animator.start();
+//                        t.setAnimation(animation);
+//                        t.animate().translationX(0).setDuration(duration).translationX(1).start();
                     }
                 }, time);
                 time += duration;

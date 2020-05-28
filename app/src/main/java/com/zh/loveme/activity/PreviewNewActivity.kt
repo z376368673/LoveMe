@@ -60,8 +60,8 @@ class PreviewNewActivity : BaseActivity() {
     }
 
     private fun initView() {
-        val loadAnimation = AnimationUtils.loadAnimation(this, R.anim.anim_alpha)
-        ctv_view.setText(Configs.textData.toString(), loadAnimation, 500)
+        val loadAnimation = AnimationUtils.loadAnimation(this, R.anim.animation_popup_enter)
+        ctv_view.setText(Configs.textData.toString(), loadAnimation, 1000)
     }
 
     private fun initData() {
